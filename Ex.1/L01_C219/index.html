@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!doctype html>
+    <html lang="en">
+
+
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+    <!-- anime.js tag -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body>
+    <title>About Me</title>
+    <nav class="navbar navbar-light bg-white">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1"></span>
+        </div>
+    </nav>
+    <div class="text-center">
+    </div>
+    <h1 style="text-align:center">About Me</h1>
+    <br>
+    <div class="flexbox-container" style="display:flex;">
+        <div class="sidebar" style="flex:1;margin-left: 440px;">
+            <img style="height: 550px;" src="Images/Profile1.jpg" alt="image of self">
+        </div>
+        <div class="main" style="flex:1; margin-top: 150px; margin-right: 400px">
+            <b>Au Fu Loong</b>
+            <br>
+            <br>
+            <div class="title">Student</div>
+            <br>
+            <div class="age"></div>
+            <br>
+            <br>
+            <div class="description"> My name is Fuloong, and I am currently a year 2 student at
+                Republic Polytechnic in the School of Infocomm, Digital Design and Development(SOI, DDDD).
+                I enjoy learning about coding and design and hope to start learning more on VR in the future. </div>
+            <br>
+            <div class="controls">
+                <button class="play">Play</button>
+                <button class="pause">Pause</button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        // anime({
+        //     targets: '.sidebar',
+        //     translateY: [700, 0],
+        //     rotate: 360,
+        //     easing: 'easeInOutExpo',
+        //     delay: anime.stagger(100, { start: 2000 }),
+        //     // direction: 'alternate
+        // });
+
+        anime({
+            targets: '.age',
+            innerHTML: [0, 22], //start and end values
+            easing: 'linear',
+            round: 1, //rounds off to zero decimal places 
+            duration: 1500
+        });
+
+        anime({
+            targets: ".title",
+            translateX: [700, 0],
+            rotate: 360,
+            opacity: [0, 1], //start and end values
+            delay: 500
+        });
+
+        anime({
+            targets: ".description",
+            scale: [
+                { value: .1, easing: 'easeOutSine', duration: 500 },
+                { value: 1, easing: 'easeInOutQuad', duration: 1200 }
+            ],
+            delay: anime.stagger(100, { grid: [1, 1], from: 'center' })
+        });
+
+
+        var animation = anime({
+            targets: '.sidebar',
+            translateY: [-700, 0],
+            rotate: 360,
+            delay: anime.stagger( 100, { start: 1000 }),
+            // direction: 'alternate'
+            delay: function (el, i) { return i * 100; },
+            loop: false,
+            autoplay: true,
+            easing: 'easeInOutSine'
+        });
+
+        document.querySelector('.play').onclick = animation.play;
+        document.querySelector('.pause').onclick = animation.pause;
+
+    </script>
+
+</body>
+
+</html>
